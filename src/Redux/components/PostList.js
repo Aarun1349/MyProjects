@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import PostDetails from './PostDetails'
-
+import { connect } from 'react-redux'
 export class PostList extends Component {
   render() {
+      console.log(this.props.quote)
     return (
         <>
      <div className='container'>
@@ -15,4 +16,8 @@ export class PostList extends Component {
   }
 }
 
-export default PostList
+const mapStateToProps=(state)=>{
+   return { quote:state.quote}
+}
+
+export default connect(mapStateToProps)(PostList);
